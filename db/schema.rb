@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_035644) do
+ActiveRecord::Schema.define(version: 2022_01_28_010111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2022_01_27_035644) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "performs", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "actor_id", null: false
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["actor_id"], name: "index_performs_on_actor_id"
+    t.index ["movie_id"], name: "index_performs_on_movie_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string "message"
     t.integer "stars"
@@ -40,5 +50,7 @@ ActiveRecord::Schema.define(version: 2022_01_27_035644) do
     t.index ["movie_id"], name: "index_reviews_on_movie_id"
   end
 
+  add_foreign_key "performs", "actors"
+  add_foreign_key "performs", "movies"
   add_foreign_key "reviews", "movies"
 end
