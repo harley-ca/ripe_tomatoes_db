@@ -1,4 +1,6 @@
 class Movie < ApplicationRecord
+    validates :title, presence: true
+    validates :genre, presence: true
     has_many :reviews #1 to many relationship, 1 movie has many reviews
     #Perform model was the relationship and now is two '1 to many' relationships
     #one actor many performs
