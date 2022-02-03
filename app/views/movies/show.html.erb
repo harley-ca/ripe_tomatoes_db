@@ -12,3 +12,5 @@
 <% @movie.reviews.each do |review| %>
     <p><%= review.message%> <%= review.stars %>/5 Stars</p>
 <% end %>
+
+<%=link_to 'Add a review', new_movie_review_path(@movie.id)%>
