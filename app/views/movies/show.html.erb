@@ -1,0 +1,14 @@
+<h1><%= @movie.title %></h3>
+<p><%= @movie.year%></p>
+<p>Genre: <%= @movie.genre %></p>
+<p><%= @movie.length %> minutes</p>
+<h2>Actors:<p>
+<% @movie.actors.each do |actor| %>
+    <h3><%= actor.name%></h3>
+    <p>DOB: <%=actor.dob%></p>
+<% end %>
+
+<h2>Reviews:</h2>
+<% @movie.reviews.each do |review| %>
+    <p><%= review.message%> <%= review.stars %>/5 Stars</p>
+<% end %>
