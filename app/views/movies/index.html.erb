@@ -2,7 +2,9 @@
 <% @movies.each do |movie| %>
     <h3><%= link_to movie.title, movie_path(movie.id) %></h3>
     <p><%= movie.year%></p>
-    <p><%= movie.genre %> - <%= movie.length %></p>
-    <p>Reviews: <%= movie.count_reviews%></p>
+    <p>$<%= movie.price %></p>
+    <p><%= movie.length %> minutes</p>
+    <p>Reviews: <%= movie.reviews.count%></p>
+    <p>Average Rating: <%= movie.average_rating %></p>
     <p>Actors: <%= movie.actors.count%></p>
 <% end %>

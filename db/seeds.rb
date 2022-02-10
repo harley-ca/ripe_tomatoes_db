@@ -13,11 +13,11 @@ Actor.destroy_all
 puts 'Cleaning database...'
 puts 'Database ready for seeding...'
 puts 'Seeding database'
-m1 = Movie.create(title: 'Top Gun', genre:'Action', year: 1986, length: 110)
-m2 = Movie.create(title: 'Spider-Man: No Way Home', genre:'Action', year: 2021, length: 148)
-m3 = Movie.create(title: "Don't Look Up", genre: "Comedy/Disaster", year: 2021, length: 145)
-m4 = Movie.create(title: 'Dune', genre: 'Sci-fi', year: 2021, length: 155)
-m5 = Movie.create(title: 'The Power of the Dog', genre: 'Western', year: 2021, length: 125)
+m1 = Movie.create(title: 'Top Gun', genre:'Action', year: 1986, length: 110, price: 12.3)
+m2 = Movie.create(title: 'Spider-Man: No Way Home', genre:'Action', year: 2021, length: 148, price: 10.5)
+m3 = Movie.create(title: "Don't Look Up", genre: "Comedy/Disaster", year: 2021, length: 145, price: 9)
+m4 = Movie.create(title: 'Dune', genre: 'Sci-fi', year: 2021, length: 155, price: 11.25)
+m5 = Movie.create(title: 'The Power of the Dog', genre: 'Western', year: 2021, length: 125, price: 16.95)
 
 #m2
 #m3
@@ -37,7 +37,6 @@ a11 = Actor.create(name: 'Kirsten Dunst', dob: 1995)
 #a2
 #a3
 #a4
-r1 = Review.create(message: 'Absolutely stunning!', stars: 5, movie: m1)
 #r2
 #r3
 p1 = Perform.create(movie: m1, actor: a1, role: 'Maverick')
