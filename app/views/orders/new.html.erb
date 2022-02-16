@@ -1,3 +1,24 @@
-<p>Are you sure you want to watch <%=@movie.title%></p>
-<%= link_to "Yes", movie_orders_path(@movie.id)%>
-<%= link_to "No", movie_path(@movie.id)%>
+<p>Are you sure you want to watch <%=@movie.title%>?</p>
+
+<%= form_tag movie_orders_path do %>
+    <article>
+        <% if flash[:error].present? %>
+            <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+            </div>
+        <% end %>
+        <label class="amount">
+            <span>Amount: $<%= @amount %></span>
+        </label>
+    </article>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="Movie Payment"
+        data-amount="<%= @amount%>"
+        data-locale="auto">
+    </script>
+<% end %> 
+
+
+
+

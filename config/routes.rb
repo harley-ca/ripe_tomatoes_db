@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :orders, only:[:new, :create]
   end
   get '/actors', to: 'actors#index'
+  get '/myorders', to: 'orders#index', as: "my_orders"
 
 
 

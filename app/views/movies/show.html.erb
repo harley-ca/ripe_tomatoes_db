@@ -1,6 +1,6 @@
 <h1><%= @movie.title %></h3>
 <p><%= @movie.year%></p>
-<p>$<%= @movie.price %> - </p><% link_to "Watch now!", new_movie_order_path(@movie.id)%>
+<p>$<%= @movie.price %> - <%= link_to "Watch now!", new_movie_order_path(@movie.id) %></p>
 <p><%= @movie.length %> minutes</p>
 <h2>Actors:<p>
 <% @movie.actors.each do |actor| %>
